@@ -15,7 +15,7 @@ import {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { filterDataByIds, isRowSelectedDisabled } from '../util/common';
+import { filterDataByIds, isRowSelectedDisabled } from '../utils';
 import useClassName from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
@@ -86,10 +86,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
     const selectBoxProps = {
       props: {
         checked,
-        ...column,
-        type: column.type,
         disabled,
-        rowIndex,
         ...checkProps,
       },
       on: {

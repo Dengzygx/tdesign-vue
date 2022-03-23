@@ -255,7 +255,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
                 class=""
               >
                 <div
-                  class=""
+                  class="t-table__row-full-element"
                 >
                   <div
                     class="t-table__async-loading t-is-loading"
@@ -409,7 +409,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
         >
           <tr>
             <th
-              class="row t-table__th-index t-align-center"
+              class="custom-column-class-name t-table__th-index t-align-center"
               data-colkey="index"
             >
               <div
@@ -465,7 +465,11 @@ exports[`Table Table baseVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
           </tr>
@@ -477,7 +481,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
             class=""
           >
             <td
-              class="row t-align-center"
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
             >
               0
             </td>
@@ -515,7 +520,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
             class=""
           >
             <td
-              class="row t-align-center"
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
             >
               1
             </td>
@@ -553,7 +559,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
             class=""
           >
             <td
-              class="row t-align-center"
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
             >
               2
             </td>
@@ -591,7 +598,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
             class=""
           >
             <td
-              class="row t-align-center"
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
             >
               3
             </td>
@@ -629,7 +637,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
             class=""
           >
             <td
-              class="row t-align-center"
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
             >
               4
             </td>
@@ -957,7 +966,11 @@ exports[`Table Table customColVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
           </tr>
@@ -1254,7 +1267,11 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
           </tr>
@@ -1617,7 +1634,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                   class="t-table__th-cell-inner"
                 >
                   <div
-                    class="t-table__cell--sortable t-table__cell--filterable"
+                    class="t-table__cell--sortable"
                   >
                     <div
                       class="t-table__cell--title"
@@ -1631,44 +1648,41 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                         <div
                           class="t-table__cell--sort-trigger t-table__double-icons"
                         >
-                          <span>
-                            <span
-                              class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
                           </span>
                         </div>
-                        <!---->
                       </div>
                     </div>
                   </div>
@@ -1682,7 +1696,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                   class="t-table__th-cell-inner"
                 >
                   <div
-                    class="t-table__cell--sortable t-table__cell--filterable"
+                    class="t-table__cell--sortable"
                   >
                     <div
                       class="t-table__cell--title"
@@ -1696,44 +1710,41 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                         <div
                           class="t-table__cell--sort-trigger t-table__double-icons"
                         >
-                          <span>
-                            <span
-                              class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
                           </span>
                         </div>
-                        <!---->
                       </div>
                     </div>
                   </div>
@@ -1841,7 +1852,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
               <td
                 class=""
               >
-                jenny
+                peter
               </td>
             </tr>
             <tr
@@ -1856,22 +1867,22 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 class=""
               >
                 <p
-                  class="status warning"
+                  class="status"
                 >
                   
-            警告
+            健康
           
                 </p>
               </td>
               <td
                 class=""
               >
-                1500
+                1000
               </td>
               <td
                 class=""
               >
-                peter
+                jenny;peter
               </td>
             </tr>
           </tbody>
@@ -3302,7 +3313,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
    
   <div>
     <label
-      class="t-checkbox"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -3321,7 +3332,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   </div>
    
   <div
-    class="t-table t-size-m"
+    class="t-table t-size-m t-table--bordered"
     style="position: relative;"
   >
     <div
@@ -3403,41 +3414,39 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
-                        <span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
                         </span>
                       </div>
                       <div
@@ -3651,22 +3660,22 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
             <td
               class=""
             >
-              Zandra
+              Eric
             </td>
             <td
               class=""
             >
-              Croson
+              Spinke
             </td>
             <td
               class=""
             >
-              zcroson5@virginia.edu
+              espinke0@apache.org
             </td>
             <td
               class=""
             >
-              2022-03-01
+              2021-11-01
             </td>
           </tr>
         </tbody>
@@ -3961,7 +3970,11 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
           </tr>
@@ -5583,7 +5596,11 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
             <th
@@ -6423,7 +6440,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
         style="height: 200px;"
       >
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             <col />
@@ -11524,7 +11541,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         style="height: 150px;"
       >
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             <col
@@ -11557,7 +11574,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  类型
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    类型
+                  </div>
                 </div>
               </th>
               <th
@@ -11567,7 +11588,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  平台
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    平台
+                  </div>
                 </div>
               </th>
               <th
@@ -11577,7 +11602,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  属性
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    属性
+                  </div>
                 </div>
               </th>
               <th
@@ -11587,7 +11616,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  默认值
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    默认值
+                  </div>
                 </div>
               </th>
               <th
@@ -11597,7 +11630,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  是否必传
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    是否必传
+                  </div>
                 </div>
               </th>
               <th
@@ -11607,7 +11644,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  说明
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    说明
+                  </div>
                 </div>
               </th>
             </tr>
@@ -11657,7 +11698,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         style="height: 150px;"
       >
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             <col
@@ -11690,7 +11731,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  类型
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    类型
+                  </div>
                 </div>
               </th>
               <th
@@ -11700,7 +11745,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  平台
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    平台
+                  </div>
                 </div>
               </th>
               <th
@@ -11710,7 +11759,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  属性
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    属性
+                  </div>
                 </div>
               </th>
               <th
@@ -11720,7 +11773,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  默认值
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    默认值
+                  </div>
                 </div>
               </th>
               <th
@@ -11730,7 +11787,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  是否必传
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    是否必传
+                  </div>
                 </div>
               </th>
               <th
@@ -11740,7 +11801,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  说明
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    说明
+                  </div>
                 </div>
               </th>
             </tr>
@@ -11779,7 +11844,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         style="height: 150px;"
       >
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             <col
@@ -11812,7 +11877,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  类型
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    类型
+                  </div>
                 </div>
               </th>
               <th
@@ -11822,7 +11891,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  平台
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    平台
+                  </div>
                 </div>
               </th>
               <th
@@ -11832,7 +11905,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  属性
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    属性
+                  </div>
                 </div>
               </th>
               <th
@@ -11842,7 +11919,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  默认值
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    默认值
+                  </div>
                 </div>
               </th>
               <th
@@ -11852,7 +11933,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  是否必传
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    是否必传
+                  </div>
                 </div>
               </th>
               <th
@@ -11862,7 +11947,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <div
                   class="t-table__th-cell-inner"
                 >
-                  说明
+                  <div
+                    class="t-table__ellipsis t-text-ellipsis"
+                  >
+                    说明
+                  </div>
                 </div>
               </th>
             </tr>
@@ -11944,7 +12033,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
       >
         <tr>
           <th
-            class="t-table__th-platform"
+            class="test t-table__th-platform"
             data-colkey="platform"
           >
             <div
@@ -11954,7 +12043,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-type"
+            class="row t-table__th-type"
             data-colkey="type"
           >
             <div
@@ -11964,7 +12053,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-default"
+            class="test4 t-table__th-default"
             data-colkey="default"
           >
             <div
@@ -11974,7 +12063,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-needed"
+            class="test3 t-table__th-needed"
             data-colkey="needed"
           >
             <div
@@ -11984,7 +12073,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             </div>
           </th>
           <th
-            class="t-table__th-description"
+            class="row t-table__th-description"
             data-colkey="description"
           >
             <div
@@ -12002,56 +12091,49 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           class=""
         >
           <td
-            class=""
+            class="test"
           >
             公有
           </td>
           <td
-            class=""
+            class="row"
           >
             Array&lt;any&gt;
           </td>
           <td
-            class=""
+            class="test4"
           >
             []
           </td>
           <td
-            class=""
+            class="test3"
+            colspan="2"
           >
             Y
-          </td>
-          <td
-            class=""
-          >
-            数据源
           </td>
         </tr>
         <tr
           class=""
         >
           <td
-            class=""
+            class="test"
           >
-            私有
+            公有
           </td>
           <td
-            class=""
+            class="row"
+            colspan="2"
+            rowspan="2"
           >
-            String/""
+            String
           </td>
           <td
-            class=""
-          >
-            ""
-          </td>
-          <td
-            class=""
+            class="test3"
           >
             Y
           </td>
           <td
-            class=""
+            class="row"
           >
             描述
           </td>
@@ -12060,27 +12142,17 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           class=""
         >
           <td
-            class=""
+            class="test"
           >
-            私有
+            公有
           </td>
           <td
-            class=""
-          >
-            Object / {}
-          </td>
-          <td
-            class=""
-          >
-            {}
-          </td>
-          <td
-            class=""
+            class="test3"
           >
             Y
           </td>
           <td
-            class=""
+            class="row"
           >
             复杂类型
           </td>
@@ -12089,27 +12161,27 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           class=""
         >
           <td
-            class=""
+            class="test"
           >
             公有
           </td>
           <td
-            class=""
+            class="row"
           >
             Boolean
           </td>
           <td
-            class=""
+            class="test4"
           >
             false
           </td>
           <td
-            class=""
+            class="test3"
           >
-            N
+            Y
           </td>
           <td
-            class=""
+            class="row"
           >
             标识符
           </td>
@@ -12118,58 +12190,45 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           class=""
         >
           <td
-            class=""
+            class="test"
           >
             公有
           </td>
           <td
-            class=""
+            class="row"
           >
-            Number
+            Array&lt;any&gt;
           </td>
           <td
-            class=""
+            class="test4 t-table__td-last-row"
+            colspan="2"
+            rowspan="2"
           >
-            -1 / N
+            -1
           </td>
           <td
-            class=""
+            class="row"
           >
-            Y
-          </td>
-          <td
-            class=""
-          >
-            位置
+            数据源
           </td>
         </tr>
         <tr
           class=""
         >
           <td
-            class=""
+            class="test"
           >
-            私有
+            公有
           </td>
           <td
-            class=""
+            class="row"
           >
-            Number
+            String
           </td>
           <td
-            class=""
+            class="row"
           >
-            -1
-          </td>
-          <td
-            class=""
-          >
-            N
-          </td>
-          <td
-            class=""
-          >
-            Number 类型
+            描述
           </td>
         </tr>
       </tbody>
@@ -12182,7 +12241,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
 exports[`Table Table multiHeaderVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large tdesign-demo-table-multi-header"
-  style="width: 90%;"
+  style="width: 100%;"
 >
   <div>
     <label
@@ -12353,7 +12412,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             style="width: 100px;"
           />
           <col
-            style="width: 100px;"
+            style="width: 110px;"
           />
           <col
             style="width: 100px;"
@@ -12514,33 +12573,37 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__cell--filterable"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
                   <div
-                    class="t-table__cell--title"
+                    class="t-table__cell--filterable"
                   >
-                    <div>
-                      属性
-                    </div>
                     <div
-                      class="t-table__filter-icon-wrap"
+                      class="t-table__cell--title"
                     >
+                      <div>
+                        属性
+                      </div>
                       <div
-                        class="t-table__filter-icon"
+                        class="t-table__filter-icon-wrap"
                       >
-                        <svg
-                          class="t-icon t-icon-filter"
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 16 16"
-                          width="1em"
+                        <div
+                          class="t-table__filter-icon"
                         >
-                          <path
-                            d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
-                            fill="currentColor"
-                            fill-opacity="0.9"
-                          />
-                        </svg>
+                          <svg
+                            class="t-icon t-icon-filter"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
+                          >
+                            <path
+                              d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -12555,7 +12618,11 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                说明
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  说明
+                </div>
               </div>
             </th>
           </tr>
@@ -12578,7 +12645,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__cell--sortable t-table__cell--filterable"
+                  class="t-table__cell--sortable"
                 >
                   <div
                     class="t-table__cell--title"
@@ -12592,44 +12659,41 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
-                        <span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
                         </span>
                       </div>
-                      <!---->
                     </div>
                   </div>
                 </div>
@@ -12672,7 +12736,11 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                描述
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  描述
+                </div>
               </div>
             </th>
           </tr>
@@ -12772,7 +12840,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                   class="t-table__th-cell-inner"
                 >
                   <div
-                    class="t-table__cell--sortable t-table__cell--filterable"
+                    class="t-table__cell--sortable"
                   >
                     <div
                       class="t-table__cell--title"
@@ -12786,44 +12854,41 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                         <div
                           class="t-table__cell--sort-trigger t-table__double-icons"
                         >
-                          <span>
-                            <span
-                              class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
                           </span>
                         </div>
-                        <!---->
                       </div>
                     </div>
                   </div>
@@ -12837,7 +12902,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                   class="t-table__th-cell-inner"
                 >
                   <div
-                    class="t-table__cell--sortable t-table__cell--filterable"
+                    class="t-table__cell--sortable"
                   >
                     <div
                       class="t-table__cell--title"
@@ -12851,44 +12916,41 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                         <div
                           class="t-table__cell--sort-trigger t-table__double-icons"
                         >
-                          <span>
-                            <span
-                              class="t-table__sort-icon--active t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          <span
+                            class="t-table__sort-icon--active t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
                           </span>
                         </div>
-                        <!---->
                       </div>
                     </div>
                   </div>
@@ -13048,8 +13110,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
 
 exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 <div
-  class="t-table t-size-m t-table--bordered t-table--striped t-vertical-align-top"
-  data-a="sheep"
+  class="t-table t-size-m t-table--bordered t-table--striped"
   style="position: relative;"
 >
   <div
@@ -13113,7 +13174,11 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
             <div
               class="t-table__th-cell-inner"
             >
-              邮箱
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                邮箱
+              </div>
             </div>
           </th>
         </tr>
@@ -13229,6 +13294,32 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
           />
         </svg>
       </div>
+      <div
+        class="t-pagination__jump"
+      >
+        跳至
+        <div
+          class="t-input-number t-size-m t-input-number--normal t-pagination__input"
+        >
+          <div
+            class="t-input__wrap"
+          >
+            <div
+              class="t-input t-size-m"
+              ref="refInputElem"
+            >
+              <input
+                autocomplete="off"
+                class="t-input__inner"
+                placeholder="请输入"
+                type="text"
+                unselectable="off"
+              />
+            </div>
+          </div>
+        </div>
+        页
+      </div>
     </div>
   </div>
 </div>
@@ -13321,7 +13412,11 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  详情信息
+                </div>
               </div>
             </th>
           </tr>
@@ -13335,45 +13430,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <td
               class="row t-align-center"
             >
-              0
-            </td>
-            <td
-              class=""
-            >
-              共有
-            </td>
-            <td
-              class=""
-            >
-              String
-            </td>
-            <td
-              class=""
-            >
-              -
-            </td>
-            <td
-              class=""
-            >
-              是
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                读取 0 个数据的嵌套信息值
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="row t-align-center"
-            >
-              1
+              5
             </td>
             <td
               class=""
@@ -13401,7 +13458,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <div
                 class="t-table__ellipsis t-text-ellipsis"
               >
-                读取 1 个数据的嵌套信息值
+                读取 5 个数据的嵌套信息值
               </div>
             </td>
           </tr>
@@ -13411,7 +13468,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <td
               class="row t-align-center"
             >
-              2
+              6
             </td>
             <td
               class=""
@@ -13439,7 +13496,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <div
                 class="t-table__ellipsis t-text-ellipsis"
               >
-                读取 2 个数据的嵌套信息值
+                读取 6 个数据的嵌套信息值
               </div>
             </td>
           </tr>
@@ -13449,7 +13506,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <td
               class="row t-align-center"
             >
-              3
+              7
             </td>
             <td
               class=""
@@ -13477,7 +13534,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <div
                 class="t-table__ellipsis t-text-ellipsis"
               >
-                读取 3 个数据的嵌套信息值
+                读取 7 个数据的嵌套信息值
               </div>
             </td>
           </tr>
@@ -13487,7 +13544,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <td
               class="row t-align-center"
             >
-              4
+              8
             </td>
             <td
               class=""
@@ -13515,7 +13572,45 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <div
                 class="t-table__ellipsis t-text-ellipsis"
               >
-                读取 4 个数据的嵌套信息值
+                读取 8 个数据的嵌套信息值
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="row t-align-center"
+            >
+              9
+            </td>
+            <td
+              class=""
+            >
+              私有
+            </td>
+            <td
+              class=""
+            >
+              Number
+            </td>
+            <td
+              class=""
+            >
+              0
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                读取 9 个数据的嵌套信息值
               </div>
             </td>
           </tr>
@@ -13570,8 +13665,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           </div>
         </div>
         <div
-          class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
-          disabled="disabled"
+          class="t-pagination__btn t-pagination__btn-prev"
         >
           <svg
             class="t-icon t-icon-chevron-left"
@@ -13591,12 +13685,12 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           class="t-pagination__pager"
         >
           <li
-            class="t-pagination__number t-is-current"
+            class="t-pagination__number"
           >
             1
           </li>
           <li
-            class="t-pagination__number"
+            class="t-pagination__number t-is-current"
           >
             2
           </li>
@@ -14359,13 +14453,13 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             </td>
           </tr>
           <tr
-            class=""
+            class="t-table__row--selected"
           >
             <td
               class="demo-single-select-cell"
             >
               <label
-                class="t-radio"
+                class="t-radio t-is-checked"
               >
                 <input
                   class="t-radio__former"
@@ -14894,7 +14988,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__cell--sortable t-table__cell--filterable"
+                  class="t-table__cell--sortable"
                 >
                   <div
                     class="t-table__cell--title"
@@ -14908,44 +15002,41 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
-                        <span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
                         </span>
                       </div>
-                      <!---->
                     </div>
                   </div>
                 </div>
@@ -14959,7 +15050,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 <div
-                  class="t-table__cell--sortable t-table__cell--filterable"
+                  class="t-table__cell--sortable"
                 >
                   <div
                     class="t-table__cell--title"
@@ -14973,44 +15064,41 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
-                        <span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
+                        >
+                          <svg
+                            class="t-icon t-icon-chevron-down"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fill-opacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
                         </span>
                       </div>
-                      <!---->
                     </div>
                   </div>
                 </div>
@@ -15124,7 +15212,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
             <td
               class=""
             >
-              jenny
+              peter
             </td>
           </tr>
           <tr
@@ -15138,25 +15226,25 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
             <td
               class=""
             >
-              <!---->
-               
               <p
-                class="status warning"
+                class="status"
               >
-                警告
+                健康
               </p>
                
               <!---->
+               
+              <!---->
             </td>
             <td
               class=""
             >
-              1500
+              1000
             </td>
             <td
               class=""
             >
-              peter
+              jenny;peter
             </td>
           </tr>
         </tbody>
@@ -15385,6 +15473,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15481,6 +15570,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15576,6 +15666,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15672,6 +15763,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15767,6 +15859,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15852,7 +15945,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           <col />
           <col />
           <col
-            style="width: 250px;"
+            style="width: 280px;"
           />
         </colgroup>
         <thead
@@ -15866,7 +15959,11 @@ exports[`Table Table treeVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                编号
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  编号
+                </div>
               </div>
             </th>
             <th
@@ -15876,7 +15973,11 @@ exports[`Table Table treeVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                名称
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  名称
+                </div>
               </div>
             </th>
             <th
@@ -15933,7 +16034,8 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -15953,7 +16055,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       fill-opacity="0.9"
                     />
                   </svg>
-                  我是 0 号（第 1 页）
+                  我是 0_1 号（第 1 页）
                 </div>
               </div>
             </td>
@@ -16035,7 +16137,8 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -16055,7 +16158,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       fill-opacity="0.9"
                     />
                   </svg>
-                  我是 1 号（第 1 页）
+                  我是 1_1 号（第 1 页）
                 </div>
               </div>
             </td>
@@ -16137,7 +16240,8 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -16157,7 +16261,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       fill-opacity="0.9"
                     />
                   </svg>
-                  我是 2 号（第 1 页）
+                  我是 2_1 号（第 1 页）
                 </div>
               </div>
             </td>
@@ -16239,7 +16343,8 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -16259,7 +16364,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       fill-opacity="0.9"
                     />
                   </svg>
-                  我是 3 号（第 1 页）
+                  我是 3_1 号（第 1 页）
                 </div>
               </div>
             </td>
@@ -16341,7 +16446,8 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -16361,7 +16467,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       fill-opacity="0.9"
                     />
                   </svg>
-                  我是 4 号（第 1 页）
+                  我是 4_1 号（第 1 页）
                 </div>
               </div>
             </td>
@@ -16589,7 +16695,7 @@ exports[`Table Table virtualScrollVue demo works fine 1`] = `
           style="transform: translate(0, 28800px);"
         />
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             <col />

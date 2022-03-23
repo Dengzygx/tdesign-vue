@@ -181,13 +181,13 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
       const col = columns[i];
       if (col.fixed === 'right') return;
       const colInfo = initialColumnMap.get(col.colKey || i);
-      // 多级表头，使用父元素作为初始基本位置
-      const defaultWidth = i === 0 ? parent?.left || 0 : 0;
       let lastColIndex = i - 1;
       while (lastColIndex >= 0 && columns[lastColIndex].fixed !== 'left') {
         lastColIndex -= 1;
       }
       const lastCol = columns[lastColIndex];
+      // 多级表头，使用父元素作为初始基本位置
+      const defaultWidth = i === 0 ? parent?.left || 0 : 0;
       const lastColInfo = initialColumnMap.get(lastCol?.colKey || i - 1);
       colInfo.left = (lastColInfo?.left || defaultWidth) + (lastColInfo?.width || 0);
       // 多级表头
@@ -207,7 +207,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
       if (col.fixed === 'left') return;
       const colInfo = initialColumnMap.get(col.colKey || i);
       let lastColIndex = i + 1;
-      while (lastColIndex < columns.length && columns[lastColIndex].fixed !== 'left') {
+      while (lastColIndex < columns.length && columns[lastColIndex].fixed !== 'right') {
         lastColIndex += 1;
       }
       const lastCol = columns[lastColIndex];
@@ -394,6 +394,11 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     }, 0);
   };
 
+  const setTableWidth = () => {
+    const rect = tableContentRef.value.getBoundingClientRect();
+    tableWidth.value = rect.width - scrollbarWidth.value - (props.bordered ? 1 : 0);
+  };
+
   const setThWidthList = (trList: HTMLCollection) => {
     const widthMap: { [colKey: string]: number } = {};
     for (let i = 0, len = trList.length; i < len; i++) {
@@ -405,8 +410,6 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
       }
     }
     thWidthList.value = widthMap;
-    const rect = tableContentRef.value.getBoundingClientRect();
-    tableWidth.value = rect.width - scrollbarWidth.value - (props.bordered ? 1 : 0);
     if (affixHeaderRef.value) {
       const left = tableContentRef.value.scrollLeft;
       lastScrollLeft = left;
@@ -417,6 +420,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   const setThWidthListHander = () => {
     if (notNeedThWidthList.value) return;
     const timer = setTimeout(() => {
+      setTableWidth();
       const thead = tableContentRef.value.querySelector('thead');
       setThWidthList(thead.children);
       clearTimeout(timer);
@@ -466,7 +470,9 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     }
   });
 
-  const onResize = () => {
+  const refreshTable = () => {
+    setTableWidth();
+    updateFixedHeader();
     if (!notNeedThWidthList.value) {
       setThWidthListHander();
     }
@@ -476,12 +482,13 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     }
   };
 
+  const onResize = refreshTable;
+
   onMounted(() => {
     const scrollWidth = getScrollbarWidth();
     scrollbarWidth.value = scrollWidth;
     const timer = setTimeout(() => {
-      const rect = tableContentRef.value.getBoundingClientRect();
-      tableWidth.value = rect.width - scrollWidth - (props.bordered ? 1 : 0);
+      setTableWidth();
       clearTimeout(timer);
     });
     if (isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value) {
@@ -511,6 +518,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     virtualScrollHeaderPos,
     affixHeaderRef,
     scrollbarWidth,
+    refreshTable,
     setThWidthListHander,
     updateHeaderScroll,
     onTableContentScroll,

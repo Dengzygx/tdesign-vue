@@ -23,6 +23,8 @@ export default function useClassName() {
       affixedHeaderElm: `${prefix}-table__affixed-header-elm`,
       // 边框模式，固定表头，横向滚动时，右侧添加边线，分隔滚动条
       scrollbarDivider: `${prefix}-table__scroll-bar-divider`,
+      // 当用户设置 height 为固定高度，为保证行元素铺满 table，则需设置 table 元素高度为 100%
+      fullHeight: `${prefix}-table--full-height`,
     },
 
     tdAlignClasses: {
@@ -134,6 +136,7 @@ export default function useClassName() {
     // 树形结构类名
     tableTreeClasses: {
       col: `${prefix}-table__tree-col`,
+      inlineCol: `${prefix}-table__tree-col--inline`,
       icon: `${prefix}-table__tree-op-icon`,
     },
 

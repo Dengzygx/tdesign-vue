@@ -37,7 +37,7 @@ export default defineComponent({
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
     // 行选中功能
-    const { formatToRowSelectColumn, tRowClassNames } = useRowSelect(props, context);
+    const { formatToRowSelectColumn, tRowClassNames } = useRowSelect(props);
     // 过滤功能
     const { hasEmptyCondition, renderFilterIcon, renderFirstFilterRow } = useFilter(props, context);
 
@@ -57,8 +57,8 @@ export default defineComponent({
         if (item.sorter || item.filter) {
           const titleContent = renderTitle(h, context.slots, item, i);
           item.title = (h, p) => {
-            const sortIcon = renderSortIcon(h, p);
-            const filterIcon = renderFilterIcon(h, p);
+            const sortIcon = item.sorter ? renderSortIcon(h, p) : null;
+            const filterIcon = item.filter ? renderFilterIcon(h, p) : null;
             return renderTitleWidthIcon(h, [titleContent, sortIcon, filterIcon]);
           };
         }

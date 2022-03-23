@@ -13,7 +13,7 @@ function fadeIn(dom: HTMLElement, placement: string) {
   if (!fadeInKeyframes) return;
   const styleAfterFadeIn = fadeInKeyframes[fadeInKeyframes.length - 1];
   setDomStyleAfterAnimation(dom, styleAfterFadeIn);
-  dom?.animate(fadeInKeyframes, ANIMATION_OPTION);
+  dom.animate && dom.animate(fadeInKeyframes, ANIMATION_OPTION);
 }
 
 function fadeOut(dom: HTMLElement, placement: string, onFinish: Function) {
@@ -24,12 +24,18 @@ function fadeOut(dom: HTMLElement, placement: string, onFinish: Function) {
   const styleAfterFadeOut = fadeOutKeyframes[fadeOutKeyframes.length - 1];
   setDomStyleAfterAnimation(dom, styleAfterFadeOut);
 
-  const animation = dom?.animate(fadeOutKeyframes, ANIMATION_OPTION);
-  animation.onfinish = () => {
+  const animation = dom.animate && dom.animate(fadeOutKeyframes, ANIMATION_OPTION);
+  if (animation) {
+    animation.onfinish = () => {
+      // eslint-disable-next-line no-param-reassign
+      dom.style.display = 'none';
+      onFinish();
+    };
+  } else {
     // eslint-disable-next-line no-param-reassign
     dom.style.display = 'none';
     onFinish();
-  };
+  }
 }
 
 function setDomStyleAfterAnimation(dom: HTMLElement, styleAfterAnimation: Keyframe) {
@@ -55,13 +61,13 @@ function getFadeInKeyframes(placement: string, offsetWidth: Number, offsetHeight
       { opacity: 1, marginRight: '0' },
     ];
   }
-  if (['top'].includes(placement)) {
+  if (['top', 'center'].includes(placement)) {
     return [
       { opacity: 0, marginTop: `-${offsetHeight}px` },
       { opacity: 1, marginTop: '0' },
     ];
   }
-  if (['center', 'bottom'].includes(placement)) {
+  if (['bottom'].includes(placement)) {
     return [
       { opacity: 0, transform: `translate3d(0, ${offsetHeight}px, 0)` },
       { opacity: 1, transform: 'translate3d(0, 0, 0)' },

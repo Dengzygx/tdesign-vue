@@ -53,11 +53,11 @@ export default Vue.extend({
       /** if a trusted action (opening or closing) is prevented, increase this flag */
       visibleState: 0,
       mouseInRange: false,
-      /**
-       * mark popup as clicked when mousedown
-       * consume this flag right after click event bubbles up to document
-       */
+      /** mark popup as clicked when mousedown, reset after mouseup */
       contentClicked: false,
+      /**
+       * mark reference as clicked when click,
+       * reset after click event bubbles to document */
       refClicked: false,
     };
   },
@@ -87,9 +87,7 @@ export default Vue.extend({
     visible(val) {
       const reference = this.$el;
       const { hasTrigger } = this;
-      const parent = (this as any).popup;
       if (val) {
-        parent?.preventClosing(true);
         this.preventClosing(true);
         if (!this.hasDocumentEvent) {
           on(document, 'click', this.handleDocumentClick);
@@ -104,11 +102,11 @@ export default Vue.extend({
           });
         }
       } else {
-        parent?.preventClosing(false);
         this.preventClosing(false);
         // destruction is delayed until after animation ends
         off(document, 'click', this.handleDocumentClick);
         this.hasDocumentEvent = false;
+        this.mouseInRange = false;
       }
     },
     overlayStyle() {
@@ -143,6 +141,10 @@ export default Vue.extend({
         // override nested popups with trigger hover since higher priority
         this.visibleState = 0;
         this.handleToggle({ e, trigger: 'trigger-element-click' });
+        // ie9-10 trigger propagation
+        if (getIEVersion() < 11) {
+          this.handleDocumentClick();
+        }
       });
     } else if (hasTrigger['context-menu']) {
       on(reference, 'contextmenu', (e: MouseEvent) => {
@@ -254,12 +256,11 @@ export default Vue.extend({
     },
     handleDocumentClick() {
       if (this.contentClicked || this.refClicked) {
-        if (this.contentClicked) {
+        this.refClicked = false;
+        // clear the flag if mouseup handler is failed
+        setTimeout(() => {
           this.contentClicked = false;
-        }
-        if (this.refClicked) {
-          this.refClicked = false;
-        }
+        });
         return;
       }
       this.visibleState = 0;
@@ -287,6 +288,12 @@ export default Vue.extend({
       }
       this.mouseInRange = false;
       this.handleClose({});
+
+      // parent can no longer monitor mouse leave
+      const parent = (this as any).popup;
+      if (parent?.mouseInRange) {
+        parent.onMouseLeave(ev);
+      }
     },
     onBeforeEnter() {
       if (this.visible) {
@@ -298,20 +305,20 @@ export default Vue.extend({
         this.updatePopper();
       }
     },
-    preventClosing(enable: boolean) {
-      if (enable) {
+    preventClosing(preventing: boolean) {
+      const parent = (this as any).popup;
+      parent?.preventClosing(preventing);
+      if (preventing) {
         this.visibleState += 1;
       } else if (this.visibleState) {
         this.visibleState -= 1;
         if (!this.visibleState) {
           this.emitPopVisible(false, {});
-          const parent = (this as any).popup;
           if (parent?.hasTrigger.hover && !parent?.mouseInRange) {
             parent.emitPopVisible(false, {});
           }
         }
       }
-      return this.visibleState;
     },
   },
 
@@ -349,7 +356,7 @@ export default Vue.extend({
             mouseup: () => {
               // make sure to execute after document click is triggered
               setTimeout(() => {
-                // make sure flag is consumed
+                // clear the flag which was set by mousedown
                 this.contentClicked = false;
               });
             },

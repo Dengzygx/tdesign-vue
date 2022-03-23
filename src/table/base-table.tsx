@@ -1,5 +1,12 @@
 import {
-  computed, defineComponent, SetupContext, toRefs, ref, provide, nextTick,
+  computed,
+  defineComponent,
+  SetupContext,
+  toRefs,
+  ref,
+  provide,
+  nextTick,
+  PropType,
 } from '@vue/composition-api';
 import pick from 'lodash/pick';
 import props from './base-table-props';
@@ -35,7 +42,7 @@ export default defineComponent({
     /**
      * 渲染展开行，非公开属性，请勿在业务中使用
      */
-    renderExpandedRow: Function,
+    renderExpandedRow: Function as PropType<BaseTableProps['renderExpandedRow']>,
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
@@ -63,6 +70,7 @@ export default defineComponent({
       showColumnShadow,
       showAffixHeader,
       rowAndColFixedPosition,
+      refreshTable,
       onTableContentScroll,
       updateHeaderScroll,
     } = useFixed(props, context);
@@ -77,6 +85,11 @@ export default defineComponent({
       { [tableBaseClass.multipleHeader]: isMultipleHeader.value },
       { [tableColFixedClasses.leftShadow]: showColumnShadow.left },
       { [tableColFixedClasses.rightShadow]: showColumnShadow.right },
+    ]);
+
+    const tableElmClasses = computed(() => [
+      [tableLayoutClasses[props.tableLayout]],
+      { [tableBaseClass.fullHeight]: props.height },
     ]);
 
     const isVirtual = computed(() => type === 'virtual' && props.data?.length > (props.scroll?.threshold || 100));
@@ -159,6 +172,7 @@ export default defineComponent({
       tableElementStyles,
       virtualScrollClasses,
       tableLayoutClasses,
+      tableElmClasses,
       tableContentRef,
       isFixedHeader,
       isWidthOverflow,
@@ -189,6 +203,7 @@ export default defineComponent({
       onFixedChange,
       updateHeaderScroll,
       onInnerScroll,
+      refreshTable,
     };
   },
 
@@ -210,23 +225,18 @@ export default defineComponent({
         style={{ width: `${this.tableWidth}px`, opacity: Number(this.showAffixHeader) }}
         class={{ [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.isVirtual }}
       >
-        <table
-          class={[this.tableLayoutClasses[this.tableLayout]]}
-          style={{ ...this.tableElementStyles, width: `${this.tableWidth}px` }}
-        >
+        <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableWidth}px` }}>
           {colgroup}
-          {
-            <THead
-              scopedSlots={this.$scopedSlots}
-              isFixedHeader={this.isFixedHeader}
-              rowAndColFixedPosition={this.rowAndColFixedPosition}
-              isMultipleHeader={this.isMultipleHeader}
-              bordered={this.bordered}
-              spansAndLeafNodes={this.spansAndLeafNodes}
-              thList={this.thList}
-              thWidthList={this.thWidthList}
-            />
-          }
+          <THead
+            scopedSlots={this.$scopedSlots}
+            isFixedHeader={this.isFixedHeader}
+            rowAndColFixedPosition={this.rowAndColFixedPosition}
+            isMultipleHeader={this.isMultipleHeader}
+            bordered={this.bordered}
+            spansAndLeafNodes={this.spansAndLeafNodes}
+            thList={this.thList}
+            thWidthList={this.thWidthList}
+          />
         </table>
       </div>
     );
@@ -268,7 +278,7 @@ export default defineComponent({
       >
         {this.isVirtual && <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />}
 
-        <table ref="tableElmRef" class={this.tableLayoutClasses[this.tableLayout]} style={this.tableElementStyles}>
+        <table ref="tableElmRef" class={this.tableElmClasses} style={this.tableElementStyles}>
           {colgroup}
           <THead
             scopedSlots={this.$scopedSlots}
